@@ -112,6 +112,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_DIRS = [
-    Path.joinpath(BASE_DIR, 'portifolio/static'),
+    Path.joinpath(BASE_DIR, 'news_app/static'),
 ]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'static')
