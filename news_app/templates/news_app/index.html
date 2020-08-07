@@ -1,0 +1,35 @@
+{% extends 'news_app/base.html' %}
+{% load tz %}
+{% load static %}
+
+{% block content %}
+    <section id="news-items-list" class="mt-5">
+        <div class="container">
+            <div class="row">
+            {% for article in all_articles %}
+                <div class="col-md-4 mb-2">
+                    <div class="card" style="width:400px">
+                        <img class="card-img-top img-fluid" src="{{ article.urlToImage }}" alt="{{ article.title }}">
+                        <div class="post-source mt-2 ml-2 mb-0">
+                            <p>Source: {{ article.source.name }} </p>
+                           
+                             <p>Date: {{ article.publishedAt}}</p>
+                           
+                        </div>
+                        <div class="text-left mt-0 ml-2">
+                            <a href="{{ article.url }}" target="_blank">
+                                <h4 class="post-title">{{ article.title }}</h4>
+                            </a>
+                        </div>
+                        <div class="post-description ml-2">
+                        <p>{{article.description|truncatewords:20}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}
